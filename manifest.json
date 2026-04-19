@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "India College Auto Login",
+  "version": "4.0",
+  "description": "Auto-login for Moodle + Webmail at IITs, NITs & Indian colleges. Detects any new login page and offers to save credentials dynamically.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://moodle.iitd.ac.in/*",
+        "https://moodlenew.iitd.ac.in/*",
+        "https://moodle.iitb.ac.in/*",
+        "https://courses.iitm.ac.in/*",
+        "https://kgpmoodle.iitkgp.ac.in/*",
+        "https://moodlecse.iitkgp.ac.in/*",
+        "https://moodle.cse.iitk.ac.in/*",
+        "https://lms.iitmandi.ac.in/*",
+        "https://lms.iitjammu.ac.in/*",
+        "https://ais.iitp.ac.in/*",
+        "https://moodle.iitpkd.ac.in/*",
+        "https://moodle.iith.ac.in/*",
+        "https://lms.iitbhilai.ac.in/*",
+        "https://moodle.nitc.ac.in/*",
+        "https://newmoodle.nitrkl.ac.in/*",
+        "https://lms.nitt.edu/*",
+        "https://moodle.nits.ac.in/*",
+        "https://moodle.mnit.ac.in/*",
+        "https://elearn.nitp.ac.in/*",
+        "https://lms.nitu.ac.in/*",
+
+        "https://webmail.iitd.ac.in/*",
+        "https://webmail.iitd.ernet.in/*",
+        "https://webmail.iitk.ac.in/*",
+        "https://roundcube.cse.iitk.ac.in/*",
+        "https://webmail.iitmandi.ac.in/*",
+        "https://webmail.iitjammu.ac.in/*",
+        "https://webmail.iitp.ac.in/*",
+        "https://webmail.iitpkd.ac.in/*",
+        "https://webmail.iith.ac.in/*",
+        "https://webmail.iitbhilai.ac.in/*",
+        "https://webmail.nitc.ac.in/*",
+        "https://webmail.nitrkl.ac.in/*",
+        "https://webmail.nitt.edu/*",
+        "https://webmail.nits.ac.in/*",
+        "https://webmail.mnit.ac.in/*",
+        "https://webmail.nitp.ac.in/*",
+        "https://iitkgpmail.iitkgp.ac.in/*",
+        "https://mail.iitr.ac.in/*",
+        "https://zimbra.iitr.ac.in/*",
+
+        "*://*.ac.in/*",
+        "*://*.edu.in/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
